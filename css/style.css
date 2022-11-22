@@ -1,0 +1,32 @@
+.table>tbody>tr>td {
+    text-align: center;
+    vertical-align: middle;
+    padding: .25rem;
+    border-top: 1px dotted #dee2e6;
+    border-right: 1px solid #dee2e6;
+    border-left: 1px solid #dee2e6; 
+    border-bottom: 1px dotted #dee2e6;         
+}
+
+.table>thead>tr>th {
+    vertical-align: middle;
+    text-align: center;
+    padding: .25rem;
+    border-right: 1px solid #dee2e6;
+    border-left: 1px solid #dee2e6;         
+}
+
+.table .cal-hour {
+    border-top: 1px solid #dee2e6;
+}
+
+.centered-heading{
+    text-align: center;
+}
+
+.footer-bs{
+    position: absolute;
+    width: 100%;
+    bottom: .15em;
+    left: 0;
+}

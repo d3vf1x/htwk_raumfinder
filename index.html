@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <title>Roomchecker HTWK-Leipzig</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/alert.js"></script>
+    <script src="js/helper.js"></script>
+    <script src="js/script.js"></script>
+</head>
+
+<body onload="init();" >
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">
+            <img src="img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            HTWK Raumfinder
+        </a>
+    </nav>
+    <div class="container mt-5 mb-5">
+        <div class="row justify-content-center">
+
+            <div class="col-8">
+                <h1 class="mb-5 centered-heading">HTWK Raumfinder</h1>
+                <div class="alert alert-success mb-3" role="alert" id="alert" hidden></div>
+
+                <div class="form-row mb-2">
+                    <label class="form-group col-md-4" for="exampleInputEmail1">Raum:</label>
+                    <input class="form-control form-group col-md-2" id="roomName" value="" type="text"
+                        placeholder="Raum" aria-label="Raum">
+                </div>
+                <div class="form-row mb-2">
+                    <div class="form-group col-md-4">
+                        <label>Wochentag/Planungswoche:</label>
+                        <small class="form-text text-muted">Aktuelle Planungswoche: <span
+                                id="currentWeek"></span></small>
+                    </div>
+                    <select class="form-control form-group col-md-2 custom-select" id="weekday">
+                        <option selected value="0">Montag</option>
+                        <option value="1">Dienstag</option>
+                        <option value="2">Mittwoch</option>
+                        <option value="3">Donnerstag</option>
+                        <option value="4">Freitag</option>
+                        <option value="5">Samstag</option>
+                    </select>
+                    <div class="form-group col-md-2">
+                        <input type="number" id="week" value="0" min="0" max="65" class="form-control mx-sm-3">
+                    </div>
+                </div>
+                <div class="form-row mb-3">
+                    <div class="col-md-2"></div>
+                    <button type="button" class="col-md-2 btn btn-primary" onclick="loadDay()">Check Day</button>
+                    <div class="col-md-1"></div>
+                    <button type="button" class="col-md-2 btn btn-primary" onclick="loadWeek()">Check Week</button>
+                    <div class="col-md-2"></div>
+                </div>
+
+                <div class="panel panel-default mt-5" role="alert">
+                    <div class="panel-content">
+                        <div id="calenderTable" hidden>
+                            <h2 class="centered-heading mb-2">Raumbelegung für Planungswoche <span
+                                    id="calenderWeekNumber"></span></h2>
+                            <table class="table">
+                                <thead>
+                                    <tr id="calenderTableHead">
+                                        <th scope="col">Zeit</th>
+                                        <th scope="col">Montag</th>
+                                        <th scope="col">Dienstag</th>
+                                        <th scope="col">Mittwoch</th>
+                                        <th scope="col">Donnerstag</th>
+                                        <th scope="col">Freitag</th>
+                                        <th scope="col">Samstag</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="calenderTableBody">
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div id="resultTable" hidden>
+                            <h2 class="centered-heading mb-2">Raumbelegung für Planungswoche <span
+                                    id="resultTableWeekNumber"></span></h2>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Beginn</th>
+                                        <th scope="col">Ende</th>
+                                        <th scope="col">Veranstaltung</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="resultTableBody">
+                                    <tr>
+                                        <td>---</td>
+                                        <td>---</td>
+                                        <td>---</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <script></script>
+            </div>
+        </div>
+    </div>
+    <footer class="footer-bs d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top mt-5">
+        <p class="col-md-4 mb-0 text-muted">© 2022 Tom Wahl</p>
+
+        <a href="/"
+            class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+            <img src="img/logo.png" width="40" alt="Logo image showing a magnifying glass.">
+        </a>
+
+        <ul class="nav col-md-4 justify-content-end">
+            <li class="nav-item"><a href="datenschutz.html" class="nav-link px-2 text-muted">Datenschutz</a></li>
+            <li class="nav-item"><a href="impressum.html" class="nav-link px-2 text-muted">Impressum</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+        </ul>
+    </footer>
+</body>
+
+</html>
