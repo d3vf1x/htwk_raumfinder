@@ -40,7 +40,7 @@ function loadDay() {
     if (!checkInput())
         return;
 
-    fetch("https://d3vf1x.github.io/test/data.json", { method: 'GET' })
+    fetch("http://localhost:8080/data.json", { method: 'GET' })
         .then(response => {
             return response.json();
         })
@@ -51,7 +51,7 @@ function loadWeek() {
     if (!checkInput())
         return;
 
-    fetch("https://d3vf1x.github.io/test/data.json", { method: 'GET' })
+    fetch("http://localhost:8080/data.json", { method: 'GET' })
         .then(response => {
             return response.json();
         })
@@ -172,7 +172,7 @@ function fillTable(array) {
 
 function searchRoom(jsondata, room) {
     for (let attr in jsondata) {
-        if (attr.includes(room)) {
+        if (attr.toLocaleLowerCase().includes(room.toLocaleLowerCase())) {
             return jsondata[attr];
         }
     }
