@@ -2,7 +2,7 @@
 <html lang="de">
 
 <head>
-    <title>Roomchecker HTWK-Leipzig</title>
+    <title>Raumfinder HTWK-Leipzig</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -25,7 +25,7 @@
     <div class="container mt-5 mb-5">
         <div class="row justify-content-center">
 
-            <div class="col-8">
+            <div class="col-sm">
                 <h1 class="mb-5 centered-heading">HTWK Raumfinder</h1>
                 <div class="alert alert-success mb-3" role="alert" id="alert" hidden></div>
 
@@ -47,10 +47,8 @@
                         <option value="3">Donnerstag</option>
                         <option value="4">Freitag</option>
                         <option value="5">Samstag</option>
-                    </select>
-                    <div class="form-group col-md-2">
-                        <input type="number" id="week" value="0" min="0" max="65" class="form-control mx-sm-3">
-                    </div>
+                    </select>            
+                    <input type="number" id="week" value="0" min="0" max="65" class="form-control form-group col-md-2"">                   
                 </div>
                 <div class="form-row mb-3">
                     <div class="col-md-2"></div>
@@ -62,9 +60,10 @@
 
                 <div class="panel panel-default mt-5" role="alert">
                     <div class="panel-content">
-                        <div id="calenderTable" class="table-responsive" hidden>
+                        <div id="calenderTable" hidden>
                             <h2 class="centered-heading mb-2">Raumbelegung für Planungswoche <span
                                     id="calenderWeekNumber"></span></h2>
+                            <div class="table-responsive">
                             <table class="table">
                                 <thead>
                                     <tr id="calenderTableHead">
@@ -80,11 +79,13 @@
                                 <tbody id="calenderTableBody">
                                 </tbody>
                             </table>
+                            </div>
                         </div>
 
-                        <div id="resultTable" class="table-responsive" hidden>
+                        <div id="resultTable" hidden>
                             <h2 class="centered-heading mb-2">Raumbelegung für Planungswoche <span
                                     id="resultTableWeekNumber"></span></h2>
+                            <div class="table-responsive">
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -101,6 +102,7 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            </div>
                         </div>
                     </div>
                 </div>
