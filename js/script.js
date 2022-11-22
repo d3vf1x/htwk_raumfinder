@@ -40,7 +40,7 @@ function loadDay() {
     if (!checkInput())
         return;
 
-    fetch("https://github.com/d3vf1x/test/data.json", { method: 'GET' })
+    fetch("https://d3vf1x.github.io/test/data.json", { method: 'GET' })
         .then(response => {
             return response.json();
         })
@@ -51,7 +51,7 @@ function loadWeek() {
     if (!checkInput())
         return;
 
-    fetch("https://github.com/d3vf1x/test/data.json", { method: 'GET' })
+    fetch("https://d3vf1x.github.io/test/data.json", { method: 'GET' })
         .then(response => {
             return response.json();
         })
