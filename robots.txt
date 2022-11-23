@@ -1,0 +1,17 @@
+#        _
+#       [ ]
+#      (   )
+#       |>|
+#    __/===\__
+#   //| o=o |\\
+# <]  | o=o |  [>
+#     \=====/
+#    / / | \ \
+#   <_________>
+User-agent: *
+Disallow: /js/
+Disallow: /css/
+Disallow: /img/
+Disallow: /data.json
+Disallow: /datenschutz.html
+Disallow: /impressum.html
