@@ -40,7 +40,7 @@ function loadDay() {
     if (!checkInput())
         return;
 
-    fetch("http://localhost:8080/data.json", { method: 'GET' })
+    fetch("data.json", { method: 'GET' })
         .then(response => {
             return response.json();
         })
@@ -51,7 +51,7 @@ function loadWeek() {
     if (!checkInput())
         return;
 
-    fetch("http://localhost:8080/data.json", { method: 'GET' })
+    fetch("data.json", { method: 'GET' })
         .then(response => {
             return response.json();
         })
