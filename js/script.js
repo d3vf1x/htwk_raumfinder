@@ -116,7 +116,7 @@ function processWeek(jsondata) {
         messageSuccess("Der Raum '" + room + "' ist für den geprüften Zeitraum nicht beleg!" + " (Stand: " + getDataLastModified() + ")");
     } else {
         fillCalender(occupancies);
-        messagewarning("Die Belegung für den Raum '" + room + "' ist in den Kalender geladen wurden." + " (Stand: " + getDataLastModified() + ")");
+        messageSuccess("Die Belegung für den Raum '" + room + "' ist in den Kalender geladen wurden." + " (Stand: " + getDataLastModified() + ")");
     } 
 }
 
