@@ -1,4 +1,5 @@
 const segmentsPerHour = 4;
+const dataUrl = "data.json";
 
 function init() {
     let currentDate = new Date();
@@ -14,7 +15,24 @@ function init() {
 }
 
 
+function fetchHeader(url, wch) {
+    try {
+        var req=new XMLHttpRequest();
+        req.open("HEAD", url, false);
+        req.send(null);
+        if(req.status== 200){
+            return req.getResponseHeader(wch);
+        }
+        else return false;
+    } catch(er) {
+        return er.message;
+    }
+}
 
+function getDataLastModified(){
+    const date = new Date(fetchHeader(dataUrl,'Last-Modified')); 
+    return date.toLocaleString('de-DE');
+}
 
 function checkInput() {
     const room = document.getElementById("roomName");
@@ -40,7 +58,7 @@ function loadDay() {
     if (!checkInput())
         return;
 
-    fetch("data.json", { method: 'GET' })
+    fetch(dataUrl, { method: 'GET' })
         .then(response => {
             return response.json();
         })
@@ -51,7 +69,7 @@ function loadWeek() {
     if (!checkInput())
         return;
 
-    fetch("data.json", { method: 'GET' })
+    fetch(dataUrl, { method: 'GET' })
         .then(response => {
             return response.json();
         })
@@ -69,9 +87,9 @@ function processDay(jsondata) {
 
     let occupancies = getOccupancy(roomData, week, weekday, null);
     if (occupancies == null || occupancies.length === 0) {
-        messageSuccess("Der Raum '" + room + "' ist für den geprüften Zeitraum nicht beleg!");
+        messageSuccess("Der Raum '" + room + "' ist für den geprüften Zeitraum nicht beleg! " + "(Stand: " + getDataLastModified() + ")");
     } else {
-        messagewarning("Der Raum '" + room + "' ist für den geprüften Zeitraum belegt. Für Belegungsdetails siehe Tabelle unten.");
+        messagewarning("Der Raum '" + room + "' ist für den geprüften Zeitraum belegt. Für Belegungsdetails siehe Tabelle unten." + "(Stand: " + getDataLastModified() + ")");
         fillTable(occupancies);
         //console.log(occupancies);
     }
@@ -95,10 +113,10 @@ function processWeek(jsondata) {
     });
 
     if (isEmpty) {
-        messageSuccess("Der Raum '" + room + "' ist für den geprüften Zeitraum nicht beleg!");
+        messageSuccess("Der Raum '" + room + "' ist für den geprüften Zeitraum nicht beleg!" + "(Stand: " + getDataLastModified() + ")");
     } else {
-        messagewarning("Die Belegung für den Raum '" + room + "' ist in den Kalender geladen wurden.");
         fillCalender(occupancies);
+        messagewarning("Die Belegung für den Raum '" + room + "' ist in den Kalender geladen wurden." + "(Stand: " + getDataLastModified() + ")");
     }
 }
 
